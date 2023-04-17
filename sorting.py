@@ -43,15 +43,25 @@ def bubble_sort(list):
     return list
 
 
+def insertion_sort(list):
+    if (n := len(list)) <= 1:
+        return
+    for i in range(1, n):
+        key = list[i]
+        j = i-1
+        while j >=0 and key < list[j]:
+            list[j+1] = list[j]
+            j -= 1
+        list[j+1] = key
 
-
+    return list
 
 
 
 def main():
   my_data = read_data("numbers.csv")
   column = my_data["series_3"]
-  print(bubble_sort(column))
+  print(insertion_sort(column))
 
 
 
