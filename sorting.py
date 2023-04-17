@@ -22,10 +22,36 @@ def read_data(file_name):
     return data
 
 
+def selection_sort(list):
+    for i in range(len(list)):
+        min_ind = i
+        for j in range(i + 1, len(list)):
+            if list[j] < list[min_ind]:
+                min_ind = j
+        (list[i], list[min_ind]) = (list[min_ind], list[i])
+
+    return list
+
+
+def bubble_sort(list):
+    for i in range(0, len(list)-1):
+        for j in range(len(list)-1):
+            if (list[j]>list[j+1]):
+                temp = list[j]
+                list[j] = list[j+1]
+                list[j+1] = temp
+    return list
+
+
+
+
+
+
 
 def main():
   my_data = read_data("numbers.csv")
-  print(my_data["series_3"])
+  column = my_data["series_3"]
+  print(bubble_sort(column))
 
 
 
